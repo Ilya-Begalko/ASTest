@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Employee, EmployeesService } from './employees.service';
+import { Employee, EmployeesService } from '../servises/employees.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,14 @@ export class AppComponent {
   vhodGrid = false;
   vihodGrid = false;
 
-  inputData: Employee[] = [];
+  model300 = '';
+  model400 = '';
+
+  consumptionValue300 = '';
+  labDimensionValue300 = '';
+  consumptionValue400 = '';
+  labDimensionValue400 = '';
+
   inputData: Employee[] = [];
   outputData: Employee[] = [];
 
@@ -40,6 +47,19 @@ export class AppComponent {
   showVihodGrid = () => {
     this.vihodGrid = !this.vihodGrid;
   }
+
+  fillModel = () => {
+    this.model300 = "Pi300";
+    this.model400 = "Pi400";
+  }
+
+  fillGrid = () => {
+    this.consumptionValue300 = 'ConsumptionValue300';
+    this.labDimensionValue300 = 'LabDimensionValue300';
+    this.consumptionValue400 = 'ConsumptionValue400';
+    this.labDimensionValue400 = 'LabDimensionValue400';
+  }
+
 
   constructor(employservise: EmployeesService) {
     this.inputData = employservise.getInputData();

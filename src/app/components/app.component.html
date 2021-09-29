@@ -1,49 +1,4 @@
-<!-- * * * * * * * * * * * * * * * ng serve --open * * * * * * * * * * * * * * * * -->
-
-<style>
-  * {
-    font-family: "Montserrat SemiBold", sans-serif;
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-  }
-
-  .toolbar {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1976d2;
-  }
-
-  .toolbar_title {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 80%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .grid {
-    width: 80%;
-  }
-
-  img {
-    width: 100%;
-  }
-</style>
+<!-- * * * * * * * * * * * * * * * ng serve --open * * * * * * * * * * * * * * * * --s
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
@@ -63,18 +18,27 @@
   <div class="Select-scheme">
     Selected scheme is <span>{{selectBox.value}}</span>
     <div class="Select-scheme__img">
-      <img *ngIf="scheme300" src="assets/images/300.jpg" alt="scheme300" />
-      <img *ngIf="scheme400" src="assets/images/400.jpg" alt="scheme400" />
+      <img *ngIf="scheme300"
+           src="assets/images/300.jpg"
+           alt="scheme300" />
+
+      <img *ngIf="scheme400"
+           src="assets/images/400.jpg"
+           alt="scheme400" />
     </div>
 
   </div>
 
   <div>
     <div>
-      <a target="_self" href="assets/donwload/Отчет по точности.pdf" download="Отчет по точности.pdf">Скачать отчет по точночти в PDF</a>
+      <a target="_self"
+         href="assets/donwload/Отчет по точности.pdf"
+         download="Отчет по точности.pdf">Скачать отчет по точночти в PDF</a>
     </div>
     <div>
-      <a target="_self" href="assets/donwload/Отчет по точности.xlsx" download="Отчет по точности.xlsx">Скачать отчет по точночти в EXCEL</a>
+      <a target="_self"
+         href="assets/donwload/Отчет по точности.xlsx"
+         download="Отчет по точности.xlsx">Скачать отчет по точночти в EXCEL</a>
     </div>
   </div>
 
@@ -92,8 +56,8 @@
   </div>
 
   <div class="grid">
-    <dx-data-grid *ngIf="vhodGrid"
-                  id="dataGrid"
+    <dx-data-grid id="dataGrid"
+                  *ngIf="vhodGrid"
                   [dataSource]="inputData"
                   [allowColumnReordering]="true"
                   [allowColumnResizing]="true"
@@ -126,13 +90,17 @@
       </dxi-column>
 
       <dxi-column caption="Секция С-300">
-        <dxi-column caption="PI" dataField="Pi300"></dxi-column>
-        <dxi-column caption="Модель"></dxi-column>
+        <dxi-column caption="PI"
+                    dataField="Pi300"></dxi-column>
+        <dxi-column caption="Модель"
+                    [dataField]=model300></dxi-column>
       </dxi-column>
 
       <dxi-column caption="Секция С-400">
-        <dxi-column caption="PI" dataField="Pi400"></dxi-column>
-        <dxi-column caption="Модель"></dxi-column>
+        <dxi-column caption="PI"
+                    dataField="Pi400"></dxi-column>
+        <dxi-column caption="Модель"
+                    [dataField]=model400></dxi-column>
       </dxi-column>
 
       <dxo-export [enabled]="true"></dxo-export>
@@ -142,6 +110,11 @@
       <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
 
     </dx-data-grid>
+
+    <dx-button *ngIf="vhodGrid"
+               text="Заполнить Model"
+               (onClick)=fillModel()>
+    </dx-button>
 
     <dx-data-grid *ngIf="vihodGrid"
                   id="dataGrid"
@@ -156,23 +129,37 @@
                    [allowUpdating]="true">
       </dxo-editing>
 
-      <dxi-column caption="№" dataField="ID" width="50" [groupIndex]="0"></dxi-column>
-      <dxi-column caption="Продукт" dataField="Product" width="220"></dxi-column>
+      <dxi-column caption="№"
+                  dataField="ID"
+                  width="50"
+                  [groupIndex]="0"></dxi-column>
+      <dxi-column caption="Продукт"
+                  dataField="Product"
+                  width="220"></dxi-column>
 
       <dxi-column caption="Секция С-300">
-        <dxi-column caption="Расход" dataField="Consumption300"></dxi-column>
-        <dxi-column caption="" dataField="ConsumptionValue300"></dxi-column>
-        <dxi-column caption="Лаб. измерения" dataField="LabDimension300" width="200"></dxi-column>
-        <dxi-column caption="" dataField="LabDimensionValue300"></dxi-column>
+        <dxi-column caption="Расход"
+                    dataField="Consumption300"></dxi-column>
+        <dxi-column caption=""
+                    [dataField]=consumptionValue300></dxi-column>
+        <dxi-column caption="Лаб. измерения"
+                    dataField="LabDimension300"
+                    width="200"></dxi-column>
+        <dxi-column caption=""
+                    [dataField]=labDimensionValue300></dxi-column>
       </dxi-column>
 
       <dxi-column caption="Секция С-400">
-        <dxi-column caption="Расход" dataField="Consumption400"></dxi-column>
-        <dxi-column caption="" dataField="ConsumptionValue400"></dxi-column>
-        <dxi-column caption="Лаб. измерения" dataField="LabDimension400" width="200"></dxi-column>
-        <dxi-column caption="" dataField="LabDimensionValue400"></dxi-column>
+        <dxi-column caption="Расход"
+                    dataField="Consumption400"></dxi-column>
+        <dxi-column caption=""
+                    [dataField]=consumptionValue400></dxi-column>
+        <dxi-column caption="Лаб. измерения"
+                    dataField="LabDimension400"
+                    width="200"></dxi-column>
+        <dxi-column caption=""
+                    [dataField]=labDimensionValue400></dxi-column>
       </dxi-column>
-
 
       <dxo-export [enabled]="true"></dxo-export>
 
@@ -181,6 +168,11 @@
       <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
 
     </dx-data-grid>
+
+    <dx-button *ngIf="vihodGrid"
+               text="Заполнить таблицу"
+               (onClick)=fillGrid()>
+    </dx-button>
   </div>
 </div>
 

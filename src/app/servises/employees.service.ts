@@ -31,7 +31,6 @@ const inputData: Employee[] = [
     Pi300: 1,
   },
   {
-  {
     ID: 1,
     Name: "AR10:TI108",
     Description: "Температура куба колонны 10DT132",
