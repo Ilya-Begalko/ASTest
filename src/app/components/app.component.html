@@ -1,179 +1,193 @@
 <!-- * * * * * * * * * * * * * * * ng serve --open * * * * * * * * * * * * * * * * --s
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <span class="toolbar_title">Test task for automation-service</span>
-</div>
+<body>
 
-<div class="content" role="main">
-
-  <!-- SelectBox -->
-  <div class="Select-Box">
-    <dx-select-box class="Select-Box__Select"
-                   #selectBox
-                   [items]="['None','Scheme 300', 'Scheme 400']"
-                   (onValueChanged)="onValueChanged(selectBox.value)">
-    </dx-select-box>
+  <div class="toolbar" role="banner">
+    <span class="toolbar_title">Test task for automation-service</span>
   </div>
-  <div class="Select-scheme">
-    Selected scheme is <span>{{selectBox.value}}</span>
-    <div class="Select-scheme__img">
-      <img *ngIf="scheme300"
-           src="assets/images/300.jpg"
-           alt="scheme300" />
 
-      <img *ngIf="scheme400"
-           src="assets/images/400.jpg"
-           alt="scheme400" />
+  <div class="content" role="main">
+
+    <!-- SelectBox -->
+    <div class="select-box">
+      <div class="select-box__title">Выберите схему: </div>
+      <dx-select-box class="select-box__select"
+                     #selectBox
+                     [items]="['None','Scheme 300', 'Scheme 400']"
+                     (onValueChanged)="onValueChanged(selectBox.value)">
+      </dx-select-box>
     </div>
 
-  </div>
+    <div class="select-scheme">
+      <div class="select-scheme_title">
+        Выбранная схема: <span>{{selectBox.value}}</span>
+      </div>
 
-  <div>
-    <div>
-      <a target="_self"
+      <div class="select-scheme__img">
+
+        <img class="selected-img"
+             *ngIf="scheme300"
+             src="assets/images/300.jpg"
+             alt="scheme300" />
+
+        <img class="selected-img"
+             *ngIf="scheme400"
+             src="assets/images/400.jpg"
+             alt="scheme400" />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <div class="buttons__scheme">
+        <dx-button text="Входные данные"
+                   (onClick)="showVhodGrid()">
+        </dx-button>
+      </div>
+      <div class="buttons__scheme">
+        <dx-button text="Выходные данные"
+                   (onClick)="showVihodGrid()">
+        </dx-button>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <dx-data-grid id="dataGrid"
+                    *ngIf="vhodGrid"
+                    [dataSource]="inputData"
+                    [allowColumnReordering]="true"
+                    [allowColumnResizing]="true"
+                    [hoverStateEnabled]="true"
+                    [columnWidth]="100"
+                    [showBorders]="true">
+
+        <dxo-editing mode="cell"
+                     [allowUpdating]="true">
+        </dxo-editing>
+
+        <dxi-column caption="№"
+                    dataField="ID"
+                    [groupIndex]="0">
+        </dxi-column>
+
+        <dxi-column caption="Модель"
+                    dataField="Model"
+                    [width]="200">
+        </dxi-column>
+
+        <dxi-column caption="Название"
+                    dataField="Name"
+                    [width]="300">
+        </dxi-column>
+
+        <dxi-column caption="Описание"
+                    dataField="Description"
+                    [width]="350">
+        </dxi-column>
+
+        <dxi-column caption="Секция С-300">
+          <dxi-column caption="PI"
+                      dataField="Pi300"></dxi-column>
+          <dxi-column caption="Модель"
+                      [dataField]=model300></dxi-column>
+        </dxi-column>
+
+        <dxi-column caption="Секция С-400">
+          <dxi-column caption="PI"
+                      dataField="Pi400"></dxi-column>
+          <dxi-column caption="Модель"
+                      [dataField]=model400></dxi-column>
+        </dxi-column>
+
+        <dxo-export [enabled]="true"></dxo-export>
+
+        <dxo-paging [enabled]="false"></dxo-paging>
+
+        <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
+
+      </dx-data-grid>
+
+      <div class="grid__btn"
+           *ngIf="vhodGrid">
+        <dx-button text="Заполнить в модель"
+                   (onClick)=fillModel()>
+        </dx-button>
+      </div>
+
+      <dx-data-grid *ngIf="vihodGrid"
+                    id="dataGrid"
+                    [dataSource]="outputData"
+                    [allowColumnReordering]="true"
+                    [allowColumnResizing]="true"
+                    [hoverStateEnabled]="true"
+                    [columnWidth]="100"
+                    [showBorders]="true">
+
+        <dxo-editing mode="cell"
+                     [allowUpdating]="true">
+        </dxo-editing>
+
+        <dxi-column caption="№"
+                    dataField="ID"
+                    width="50"
+                    [groupIndex]="0"></dxi-column>
+        <dxi-column caption="Продукт"
+                    dataField="Product"
+                    width="220"></dxi-column>
+
+        <dxi-column caption="Секция С-300">
+          <dxi-column caption="Расход"
+                      dataField="Consumption300"></dxi-column>
+          <dxi-column caption=""
+                      [dataField]=consumptionValue300></dxi-column>
+          <dxi-column caption="Лаб. измерения"
+                      dataField="LabDimension300"
+                      width="200"></dxi-column>
+          <dxi-column caption=""
+                      [dataField]=labDimensionValue300></dxi-column>
+        </dxi-column>
+
+        <dxi-column caption="Секция С-400">
+          <dxi-column caption="Расход"
+                      dataField="Consumption400"></dxi-column>
+          <dxi-column caption=""
+                      [dataField]=consumptionValue400></dxi-column>
+          <dxi-column caption="Лаб. измерения"
+                      dataField="LabDimension400"
+                      width="200"></dxi-column>
+          <dxi-column caption=""
+                      [dataField]=labDimensionValue400></dxi-column>
+        </dxi-column>
+
+        <dxo-export [enabled]="true"></dxo-export>
+
+        <dxo-paging [enabled]="false"></dxo-paging>
+
+        <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
+
+      </dx-data-grid>
+
+      <div class="grid__btn"
+           *ngIf="vihodGrid">
+        <dx-button text="Заполнить таблицу"
+                   (onClick)=fillGrid()>
+        </dx-button>
+      </div>
+
+    </div>
+
+    <div class="download-links">
+      <a class="download-links_file"
+         target="_self"
          href="assets/donwload/Отчет по точности.pdf"
          download="Отчет по точности.pdf">Скачать отчет по точночти в PDF</a>
-    </div>
-    <div>
-      <a target="_self"
+      <a class="download-links_file"
+         target="_self"
          href="assets/donwload/Отчет по точности.xlsx"
          download="Отчет по точности.xlsx">Скачать отчет по точночти в EXCEL</a>
     </div>
   </div>
-
-  <div class="Buttons-field">
-    <span class="Buttons-field__button-scheme1">
-      <dx-button text="Входные данные"
-                 (onClick)="showVhodGrid()">
-      </dx-button>
-    </span>
-    <span class="Buttons-field__button-scheme1">
-      <dx-button text="Выходные данные"
-                 (onClick)="showVihodGrid()">
-      </dx-button>
-    </span>
-  </div>
-
-  <div class="grid">
-    <dx-data-grid id="dataGrid"
-                  *ngIf="vhodGrid"
-                  [dataSource]="inputData"
-                  [allowColumnReordering]="true"
-                  [allowColumnResizing]="true"
-                  [hoverStateEnabled]="true"
-                  [columnWidth]="100"
-                  [showBorders]="true">
-
-      <dxo-editing mode="cell"
-                   [allowUpdating]="true">
-      </dxo-editing>
-
-      <dxi-column caption="№"
-                  dataField="ID"
-                  [groupIndex]="0">
-      </dxi-column>
-
-      <dxi-column caption="Модель"
-                  dataField="Model"
-                  [width]="200">
-      </dxi-column>
-
-      <dxi-column caption="Название"
-                  dataField="Name"
-                  [width]="300">
-      </dxi-column>
-
-      <dxi-column caption="Описание"
-                  dataField="Description"
-                  [width]="350">
-      </dxi-column>
-
-      <dxi-column caption="Секция С-300">
-        <dxi-column caption="PI"
-                    dataField="Pi300"></dxi-column>
-        <dxi-column caption="Модель"
-                    [dataField]=model300></dxi-column>
-      </dxi-column>
-
-      <dxi-column caption="Секция С-400">
-        <dxi-column caption="PI"
-                    dataField="Pi400"></dxi-column>
-        <dxi-column caption="Модель"
-                    [dataField]=model400></dxi-column>
-      </dxi-column>
-
-      <dxo-export [enabled]="true"></dxo-export>
-
-      <dxo-paging [enabled]="false"></dxo-paging>
-
-      <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
-
-    </dx-data-grid>
-
-    <dx-button *ngIf="vhodGrid"
-               text="Заполнить Model"
-               (onClick)=fillModel()>
-    </dx-button>
-
-    <dx-data-grid *ngIf="vihodGrid"
-                  id="dataGrid"
-                  [dataSource]="outputData"
-                  [allowColumnReordering]="true"
-                  [allowColumnResizing]="true"
-                  [hoverStateEnabled]="true"
-                  [columnWidth]="100"
-                  [showBorders]="true">
-
-      <dxo-editing mode="cell"
-                   [allowUpdating]="true">
-      </dxo-editing>
-
-      <dxi-column caption="№"
-                  dataField="ID"
-                  width="50"
-                  [groupIndex]="0"></dxi-column>
-      <dxi-column caption="Продукт"
-                  dataField="Product"
-                  width="220"></dxi-column>
-
-      <dxi-column caption="Секция С-300">
-        <dxi-column caption="Расход"
-                    dataField="Consumption300"></dxi-column>
-        <dxi-column caption=""
-                    [dataField]=consumptionValue300></dxi-column>
-        <dxi-column caption="Лаб. измерения"
-                    dataField="LabDimension300"
-                    width="200"></dxi-column>
-        <dxi-column caption=""
-                    [dataField]=labDimensionValue300></dxi-column>
-      </dxi-column>
-
-      <dxi-column caption="Секция С-400">
-        <dxi-column caption="Расход"
-                    dataField="Consumption400"></dxi-column>
-        <dxi-column caption=""
-                    [dataField]=consumptionValue400></dxi-column>
-        <dxi-column caption="Лаб. измерения"
-                    dataField="LabDimension400"
-                    width="200"></dxi-column>
-        <dxi-column caption=""
-                    [dataField]=labDimensionValue400></dxi-column>
-      </dxi-column>
-
-      <dxo-export [enabled]="true"></dxo-export>
-
-      <dxo-paging [enabled]="false"></dxo-paging>
-
-      <dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
-
-    </dx-data-grid>
-
-    <dx-button *ngIf="vihodGrid"
-               text="Заполнить таблицу"
-               (onClick)=fillGrid()>
-    </dx-button>
-  </div>
-</div>
+</body>
 
 <router-outlet></router-outlet>

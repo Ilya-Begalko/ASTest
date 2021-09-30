@@ -1,8 +1,11 @@
-* {
+body {
+  box-sizing: border-box;
   font-family: "Montserrat SemiBold", sans-serif;
   font-size: 14px;
-  color: #333;
-  box-sizing: border-box;
+}
+
+dx-button {
+  font-size: 20px;
 }
 
 .toolbar {
@@ -20,7 +23,7 @@
 
 .toolbar_title {
   color: white;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 600;
 }
 
@@ -28,17 +31,81 @@
   display: flex;
   margin: 82px auto 32px;
   padding: 0 16px;
-  max-width: 80%;
+  max-width: 90%;
   flex-direction: column;
-  align-items: center;
 }
+
+.select-box {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.select-box__title {
+  margin: 10px;
+}
+
+.select-scheme {
+  padding-top: 20px;
+}
+
+.select-scheme_title {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 70px;
+}
+
+.select-scheme__img {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.selected-img {
+  width: 100%; /* you can use % */
+  height: auto;
+}
+
+.download-links {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.download-links_file {
+  margin: 10px;
+  border: 1px solid #333;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+  .download-links_file:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    opacity: 0.5;
+  }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.buttons__scheme {
+  margin: 10px;
+}
+
 
 .grid {
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-img {
-  width: 100%;
+.grid__btn {
+  padding-top: 10px;
 }
 
 #dataGrid {
