@@ -46,6 +46,7 @@ dx-button {
 }
 
 .select-scheme {
+  position: relative;
   padding-top: 20px;
 }
 
@@ -64,9 +65,303 @@ dx-button {
 }
 
 .selected-img {
-  width: 100%; /* you can use % */
+  width: 100%;
   height: auto;
 }
+
+button {
+  position: absolute;
+  opacity: 0;
+  padding: 12px 12px;
+  cursor: pointer;
+}
+
+.button-400 {
+  padding: 17px 17px;
+}
+
+.select-scheme__btn-31FRC101 {
+  top: 81%;
+  left: 13%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31TI101 {
+  top: 81%;
+  left: 16%;
+  transform: translate(-70%, -50%);
+}
+
+.select-scheme__btn-31FRC99 {
+  top: 94%;
+  left: 13%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31TI99 {
+  top: 94%;
+  left: 16%;
+  transform: translate(-70%, -50%);
+}
+
+.select-scheme__btn-31FR104 {
+  top: 88%;
+  left: 29%;
+  transform: translate(-75%, -50%);
+}
+
+.select-scheme__btn-31TI133 {
+  top: 88%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-31PRC106 {
+  top: 88%;
+  left: 36%;
+  transform: translate(-75%, -50%);
+}
+
+.select-scheme__btn-31TIC230 {
+  top: 64%;
+  left: 30%;
+  transform: translate(-45%, -55%);
+}
+
+.select-scheme__btn-31TIC70 {
+  top: 64%;
+  left: 33%;
+  transform: translate(-40%, -55%);
+}
+
+.select-scheme__btn-31TIC66 {
+  top: 34%;
+  left: 32%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31TIC72 {
+  top: 34%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-95TT200 {
+  top: 45%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-31TI112 {
+  top: 62%;
+  left: 44%;
+  transform: translate(-60%, -60%);
+}
+
+.select-scheme__btn-31TI114 {
+  top: 68%;
+  left: 44%;
+  transform: translate(-60%, -60%);
+}
+
+.select-scheme__btn-31FRC248 {
+  top: 27%;
+  left: 46%;
+  transform: translate(-56%, -50%);
+}
+
+.select-scheme__btn-31PRC120 {
+  top: 34%;
+  left: 48%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-80TI115 {
+  top: 67%;
+  left: 47%;
+  transform: translate(-55%, -45%);
+}
+
+.select-scheme__btn-80FRCO114 {
+  top: 73%;
+  left: 47%;
+  transform: translate(-55%, -45%);
+}
+
+.select-scheme__btn-31TRC260 {
+  top: 40%;
+  left: 54%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31TI179 {
+  top: 74%;
+  left: 55%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31FRC179 {
+  top: 74%;
+  left: 58%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31PRC195 {
+  top: 30%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-31TRC183 {
+  top: 42%;
+  left: 62%;
+  transform: translate(-65%, -50%);
+}
+
+.select-scheme__btn-31FR194 {
+  top: 41%;
+  left: 64%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-31TI187 {
+  top: 48%;
+  left: 63%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-31TI197 {
+  top: 30%;
+  left: 67%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-31PI201 {
+  top: 30%;
+  left: 70%;
+  transform: translate(-60%, -50%);
+}
+
+.select-scheme__btn-31FR200 {
+  top: 30%;
+  left: 72%;
+  transform: translate(-45%, -50%);
+}
+
+.select-scheme__btn-31FRC190 {
+  top: 46%;
+  left: 69%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-31PRC157 {
+  top: 41%;
+  left: 79%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-31PRC172 {
+  top: 41%;
+  left: 84%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-31TI161 {
+  top: 53%;
+  left: 83%;
+  transform: translate(-50%, -45%);
+}
+
+.select-scheme__btn-31FR166 {
+  top: 65%;
+  left: 95%;
+  transform: translate(-45%, -50%);
+}
+
+.select-scheme__btn-40TI27 {
+  top: 71%;
+  left: 13%;
+  transform: translate(-40%, -40%);
+}
+
+.select-scheme__btn-40PR212 {
+  top: 36%;
+  left: 20%;
+  transform: translate(-60%, -40%);
+}
+
+.select-scheme__btn-40TI80 {
+  top: 36%;
+  left: 25%;
+  transform: translate(-45%, -40%);
+}
+
+.select-scheme__btn-40FRC74 {
+  top: 44%;
+  left: 21%;
+  transform: translate(-30%, -40%);
+}
+
+.select-scheme__btn-40TIC15 {
+  top: 55%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-40TFR73 {
+  top: 34%;
+  left: 36%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-40TI72 {
+  top: 43%;
+  left: 35%;
+  transform: translate(-45%, -45%);
+}
+
+.select-scheme__btn-40FR60 {
+  top: 79%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-40FRC62 {
+  top: 34%;
+  left: 51%;
+  transform: translate(-40%, -50%);
+}
+
+.select-scheme__btn-40TI270 {
+  top: 34%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+.select-scheme__btn-91TRC54 {
+  top: 66%;
+  left: 50%;
+  transform: translate(-55%, -55%);
+}
+
+.select-scheme__btn-91FRC50 {
+  top: 73%;
+  left: 50%;
+  transform: translate(-55%, -45%);
+}
+
+.select-scheme__btn-40FR101 {
+  top: 27%;
+  left: 71%;
+  transform: translate(-40%, -60%);
+}
+
+.select-scheme__btn-40FR216 {
+  top: 35%;
+  left: 90%;
+  transform: translate(-65%, -50%);
+}
+
 
 .download-links {
   display: flex;
